@@ -1,0 +1,46 @@
+{
+  "author": "Jean-Paul S. Boodhoo",
+  "name": "@developwithpassion/string_rank_js",
+  "description": "String ranking utilty",
+  "version": "0.0.1",
+  "repository": {
+    "url": ""
+  },
+  "license": "MIT",
+  "main": "./dist/index",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "build": "parcel build ./lib/index.js",
+    "pretty": "prettier --config-precedence prefer-file --write \"lib/**/*.js\"",
+    "precommit": "lint-staged && npm test",
+    "lint": "eslint lib/**/*.js",
+    "test": "mocha --require @babel/register ./lib/**/*.spec.js"
+  },
+  "lint-staged": {
+    "lib/**/*.js": [
+      "yarn pretty",
+      "yarn lint",
+      "yarn build",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "@developwithpassion/matchers_js": "git+https://github.com/developwithpassion/matchers_js.git"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/register": "^7.7.0",
+    "chai": "^4.2.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-config-strongloop": "^2.1.0",
+    "eslint-plugin-mocha": "^6.2.1",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.3",
+    "mocha": "^6.2.2",
+    "parcel": "^1.12.4",
+    "prettier": "^1.19.1"
+  }
+}
